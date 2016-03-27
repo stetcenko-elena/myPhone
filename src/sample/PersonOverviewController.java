@@ -130,7 +130,6 @@ public class PersonOverviewController {
         Platform.exit();
     }
 
-
     @FXML
     private void handleSearchAge() {
         boolean okClicked = main.showSearchContactsByAge();
