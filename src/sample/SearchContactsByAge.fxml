@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="sample.SearchContactsByAgeController">
+    <children>
+        <Label layoutX="189.0" layoutY="37.0" text="Search contacts by age"/>
+        <Label layoutX="189.0" layoutY="75.0" text="Search contacts age range"/>
+        <TextField fx:id="ageFrom" layoutX="343.0" layoutY="71.0" prefHeight="25.0" prefWidth="44.0" promptText="From"/>
+        <TextField fx:id="ageTo" layoutX="394.0" layoutY="71.0" prefHeight="25.0" prefWidth="44.0" promptText="To"/>
+        <Button layoutX="452.0" layoutY="33.0" mnemonicParsing="false" onAction="#searchContactsToAge" prefHeight="25.0"
+                prefWidth="85.0" text="Search age"/>
+        <Button layoutX="452.0" layoutY="71.0" mnemonicParsing="false" onAction="#searchContactsByAgeRange"
+                text="Search range"/>
+        <TableView fx:id="tableContact" layoutX="13.0" layoutY="107.0" prefHeight="290.0" prefWidth="739.0">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="First name"/>
+                <TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="Last name"/>
+                <TableColumn fx:id="typeNumberLabel" prefWidth="75.0" text="Type number"/>
+                <TableColumn fx:id="numberLabel" prefWidth="75.0" text="Number"/>
+                <TableColumn fx:id="groupLabel" prefWidth="75.0" text="Group"/>
+                <TableColumn fx:id="emailLabel" prefWidth="75.0" text="Email"/>
+                <TableColumn fx:id="organizationLabel" prefWidth="75.0" text="Organization"/>
+                <TableColumn fx:id="birthdayLabel" prefWidth="75.0" text="Date birstday"/>
+            </columns>
+        </TableView>
+        <TextField fx:id="age" layoutX="320.0" layoutY="33.0" prefHeight="25.0" prefWidth="122.0"/>
+    </children>
+</AnchorPane>
