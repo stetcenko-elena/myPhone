@@ -24,7 +24,6 @@ public class Main extends Application {
     private ContactManager manage = new ContactManager();
 
     public Main() throws IOException {
-        // Add some sample dat
         personData.addAll(manage.getAllContacts());
     }
 
@@ -48,13 +47,7 @@ public class Main extends Application {
         showPersonOverview();
     }
 
-    /**
-     * Returns the main stage.
-     *
-     * @return
-     */
     @Override
-
     public void stop() throws IOException {
         manage.saveToFile(personData);
         Platform.exit();
@@ -62,33 +55,26 @@ public class Main extends Application {
 
     public void initRootLayout() {
         try {
-            // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("rootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
-            // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            //  e.printStackTrace();
         }
     }
 
-    /**
-     * Shows the person overview inside the root layout.
-     */
     public void showPersonOverview() {
         try {
-            // Load person overview.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("personOverview.fxml"));
             VBox personOverview = (VBox) loader.load();
 
-            // Set person overview into the center of root layout.
+
             rootLayout.setCenter(personOverview);
 
-            // Give the controller access to the main app.
             PersonOverviewController controller = loader.getController();
             controller.setMain(this);
 
@@ -104,12 +90,10 @@ public class Main extends Application {
 
     public boolean showPersonEditDialog(Contact contact) {
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("PersonEditDialog.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Edit Person");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -117,12 +101,11 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
-            // Set the person into the controller.
             PersonEditDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setPerson(contact);
 
-            // Show the dialog and wait until the user closes it
+
             dialogStage.showAndWait();
 
             return controller.isOkClicked();
@@ -134,12 +117,10 @@ public class Main extends Application {
 
     public boolean showSearchContactsByAge() {
         try {
-            // Load person overview.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("SearchContactsByAge.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Age");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -147,11 +128,9 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
-            // Set the person into the controller.
             SearchContactsByAgeController controller = loader.getController();
             controller.setDialogStage(dialogStage);
 
-            // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
             return true;
         } catch (IOException e) {
@@ -163,12 +142,11 @@ public class Main extends Application {
 
     public boolean showSearchContactsByPhoneNumber() {
         try {
-            // Load person overview.
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("SearchContactsByPhoneNumber.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Search Contacts By PhoneNumber");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -176,11 +154,9 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
-            // Set the person into the controller.
             SearchContactsByPhoneNumberController controller = loader.getController();
             controller.setDialogStage(dialogStage);
 
-            // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
             return true;
         } catch (IOException e) {
@@ -191,12 +167,11 @@ public class Main extends Application {
 
     public boolean showSearchContactsByName() {
         try {
-            // Load person overview.
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("SearchContactsByName.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            // Create the dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Search Contacts By Name");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -204,7 +179,6 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
-            // Set the person into the controller.
             SearchContactsByNameController controller = loader.getController();
             controller.setDialogStage(dialogStage);
 
@@ -218,8 +192,6 @@ public class Main extends Application {
 
     }
 
-    public void myFunc() {
 
-    }
 }
 

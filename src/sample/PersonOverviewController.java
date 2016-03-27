@@ -35,7 +35,7 @@ public class PersonOverviewController {
     private Label organizationLabel;
     @FXML
     private Label birthdayLabel;
-    // Reference to the main application.
+
     private Main main;
 
     public PersonOverviewController() {
@@ -48,25 +48,17 @@ public class PersonOverviewController {
         lastNameColumn.setCellValueFactory(
                 cellData -> cellData.getValue().lastNameProperty());
         showPersonDetails(null);
-        // Listen for selection changes and show the person details when changed.
         personTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showPersonDetails(newValue));
     }
 
-    /**
-     * Is called by the main application to give a reference back to itself.
-     *
-     * @param main
-     */
     public void setMain(Main main) {
         this.main = main;
-        // Add observable list data to the table
         personTable.setItems(main.getPersonData());
     }
 
     private void showPersonDetails(Contact contact) {
         if (contact != null) {
-            // Fill the labels with info from the person object.
             firstNameLabel.setText(contact.getFirstName());
             lastNameLabel.setText(contact.getLastName());
             typeNumberLabel.setText(contact.getTypeNumber());
@@ -77,7 +69,6 @@ public class PersonOverviewController {
             birthdayLabel.setText(DateUtil.format(contact.getBirthday()));
 
         } else {
-            // Person is null, remove all the text.
             firstNameLabel.setText("");
             lastNameLabel.setText("");
             typeNumberLabel.setText("");
@@ -106,10 +97,6 @@ public class PersonOverviewController {
         }
     }
 
-    /**
-     * Called when the user clicks the new button. Opens a dialog to edit
-     * details for a new person.
-     */
     @FXML
     private void handleNewPerson() {
         Contact tempPerson = new Contact();
@@ -119,10 +106,6 @@ public class PersonOverviewController {
         }
     }
 
-    /**
-     * Called when the user clicks the edit button. Opens a dialog to edit
-     * details for the selected person.
-     */
     @FXML
     private void handleEditPerson() {
         Contact selectedPerson = personTable.getSelectionModel().getSelectedItem();
@@ -133,7 +116,6 @@ public class PersonOverviewController {
             }
 
         } else {
-            // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.initOwner(main.getPrimaryStage());
             alert.setTitle("No Selection");
@@ -148,9 +130,7 @@ public class PersonOverviewController {
         Platform.exit();
     }
 
-    /**
-     * Called when the user clicks on the delete button.
-     */
+
     @FXML
     private void handleSearchAge() {
         boolean okClicked = main.showSearchContactsByAge();

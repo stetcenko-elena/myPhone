@@ -30,5 +30,9 @@
             </columns>
         </TableView>
         <TextField fx:id="age" layoutX="320.0" layoutY="33.0" prefHeight="25.0" prefWidth="122.0"/>
+        <Button layoutX="605.0" layoutY="33.0" mnemonicParsing="false" onAction="#getAllContacts" prefHeight="25.0"
+                prefWidth="120.0" text="Preview all contacts"/>
+        <Button layoutX="605.0" layoutY="71.0" mnemonicParsing="false" onAction="#clearTable" prefHeight="25.0"
+                prefWidth="120.0" text="Clear"/>
     </children>
 </AnchorPane>

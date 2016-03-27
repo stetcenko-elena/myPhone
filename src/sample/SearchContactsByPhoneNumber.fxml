@@ -27,5 +27,9 @@
         </TableView>
         <TextField fx:id="number" layoutX="320.0" layoutY="33.0" prefHeight="25.0" prefWidth="122.0"
                    promptText="number"/>
+        <Button layoutX="559.0" layoutY="33.0" mnemonicParsing="false" onAction="#getAllContacts" prefHeight="25.0"
+                prefWidth="85.0" text="All contacts"/>
+        <Button layoutX="665.0" layoutY="33.0" mnemonicParsing="false" onAction="#clearTable" prefHeight="25.0"
+                prefWidth="85.0" text="Clear"/>
     </children>
 </AnchorPane>

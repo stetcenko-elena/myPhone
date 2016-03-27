@@ -8,9 +8,9 @@
     <children>
         <Label layoutX="86.0" layoutY="25.0" text="Search name"/>
         <TextField fx:id="name" layoutX="205.0" layoutY="21.0" prefHeight="25.0" prefWidth="410.0"/>
-        <Button layoutX="227.0" layoutY="56.0" mnemonicParsing="false" onAction="#searchContactsToName"
-                prefHeight="25.0" prefWidth="162.0" text="Search contact"/>
-        <Button layoutX="407.0" layoutY="56.0" mnemonicParsing="false" onAction="#searchContactsToPartName"
+        <Button layoutX="33.0" layoutY="56.0" mnemonicParsing="false" onAction="#searchContactsToName" prefHeight="25.0"
+                prefWidth="162.0" text="Search contact"/>
+        <Button layoutX="205.0" layoutY="56.0" mnemonicParsing="false" onAction="#searchContactsToPartName"
                 prefHeight="25.0" prefWidth="162.0" text="Search contact part name"/>
         <TableView fx:id="tableContact" layoutX="13.0" layoutY="107.0" prefHeight="290.0" prefWidth="739.0">
             <columnResizePolicy>
@@ -27,5 +27,9 @@
                 <TableColumn fx:id="birthdayLabel" prefWidth="75.0" text="Date birstday"/>
             </columns>
         </TableView>
+        <Button layoutX="382.0" layoutY="56.0" mnemonicParsing="false" onAction="#getAllContacts" prefHeight="25.0"
+                prefWidth="162.0" text="All contacts"/>
+        <Button layoutX="563.0" layoutY="56.0" mnemonicParsing="false" onAction="#clearTable" prefHeight="25.0"
+                prefWidth="162.0" text="Clear"/>
     </children>
 </AnchorPane>

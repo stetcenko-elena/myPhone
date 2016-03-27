@@ -81,4 +81,15 @@ public class SearchContactsByPhoneNumberController {
         }
         tableContact.setItems(observableList);
     }
+
+    public void getAllContacts() throws IOException {
+        ContactManager contactManager = new ContactManager();
+        ObservableList observableList = contactManager.getAllContacts();
+        tableContact.setItems(observableList);
+    }
+
+    public void clearTable() {
+        tableContact.setItems(null);
+    }
+
 }

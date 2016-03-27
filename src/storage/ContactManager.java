@@ -12,16 +12,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 public class ContactManager {
 
-    private Set<Contact> contacts;
+    private ObservableList<Contact> contacts;
 
     public ContactManager() throws IOException {
-        this.contacts = new HashSet<>();
+        this.contacts = FXCollections.observableArrayList();
         load();
     }
 
@@ -66,7 +64,7 @@ public class ContactManager {
         }
     }
 
-    public Set<Contact> getAllContacts() {
+    public ObservableList<Contact> getAllContacts() {
         return contacts;
     }
 
